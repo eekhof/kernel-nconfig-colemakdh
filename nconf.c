@@ -1199,10 +1199,10 @@ static void selected_conf(struct menu *menu, struct menu *active_menu)
 					btn_dialog(main_window, setmod_text, 0);
 			}
 			break;
-		case 'n':
-			if (item_is_tag('t'))
-				sym_set_tristate_value(sym, no);
-			break;
+		// case 'n': // Disable to prevent accidental deselection with colemakdh navigation controls, use SPACE instead to toggle state
+		// 	if (item_is_tag('t'))
+		// 		sym_set_tristate_value(sym, no);
+		// 	break;
 		case 'm':
 			if (item_is_tag('t'))
 				sym_set_tristate_value(sym, mod);
