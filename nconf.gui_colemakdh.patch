@@ -1,0 +1,35 @@
+--- nconf.gui.c.default.6.16.5	2025-09-18 21:44:15.020964564 +0200
++++ nconf.gui.c	2025-09-18 22:35:36.938166566 +0200
+@@ -601,19 +601,19 @@
+ 			start_y = total_lines-text_lines;
+ 			break;
+ 		case KEY_DOWN:
+-		case 'j':
++		case 'e':
+ 			start_y++;
+ 			break;
+ 		case KEY_UP:
+-		case 'k':
++		case 'i':
+ 			start_y--;
+ 			break;
+ 		case KEY_LEFT:
+-		case 'h':
++		case 'n':
+ 			start_x--;
+ 			break;
+ 		case KEY_RIGHT:
+-		case 'l':
++		case 'o':
+ 			start_x++;
+ 			break;
+ 		default:
+@@ -627,7 +627,7 @@
+ 				}
+ 			}
+ 		}
+-		if (res == 0 || res == 10 || res == 27 || res == 'q' ||
++		if (res == 0 || res == 10 || res == 27 || res == 'q' || res == 'h' ||
+ 			res == KEY_F(F_HELP) || res == KEY_F(F_BACK) ||
+ 			res == KEY_F(F_EXIT))
+ 			break;
