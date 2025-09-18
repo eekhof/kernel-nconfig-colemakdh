@@ -1134,7 +1134,7 @@ static void selected_conf(struct menu *menu, struct menu *active_menu)
 				show_help((struct menu *) item_data());
 				break;
 			}
-			if (res == 10 || res == 27 || res == 111 ||
+			if (res == 10 || res == 27 || res == 111 || res == 110 ||
 				res == 32 || res == 'n' || res == 'y' ||
 				res == KEY_LEFT || res == KEY_RIGHT ||
 				res == 'm')
@@ -1325,7 +1325,7 @@ static void conf_choice(struct menu *menu)
 			refresh_all_windows(main_window);
 		}
 		/* if ESC or left */
-		if (res == 27 || res == KEY_LEFT)
+		if (res == 27 || res == KEY_LEFT || res == 110)
 			break;
 
 		child = item_data();
