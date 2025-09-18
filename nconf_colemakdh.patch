@@ -1,0 +1,68 @@
+--- nconf.c.old	2025-09-18 21:08:28.623174550 +0200
++++ nconf.c	2025-09-18 21:07:13.232416871 +0200
+@@ -1110,11 +1110,11 @@
+ 				break;
+ 			switch (res) {
+ 			case KEY_DOWN:
+-			case 'j':
++			case 'e':
+ 				menu_driver(curses_menu, REQ_DOWN_ITEM);
+ 				break;
+ 			case KEY_UP:
+-			case 'k':
++			case 'i':
+ 				menu_driver(curses_menu, REQ_UP_ITEM);
+ 				break;
+ 			case KEY_NPAGE:
+@@ -1134,7 +1134,7 @@
+ 				show_help((struct menu *) item_data());
+ 				break;
+ 			}
+-			if (res == 10 || res == 27 ||
++			if (res == 10 || res == 27 || res == 111 ||
+ 				res == 32 || res == 'n' || res == 'y' ||
+ 				res == KEY_LEFT || res == KEY_RIGHT ||
+ 				res == 'm')
+@@ -1144,7 +1144,7 @@
+ 
+ 		refresh_all_windows(main_window);
+ 		/* if ESC or left*/
+-		if (res == 27 || (menu != &rootmenu && res == KEY_LEFT))
++		if (res == 27 || (menu != &rootmenu && res == KEY_LEFT) || (menu != &rootmenu && res == 'n'))
+ 			break;
+ 
+ 		/* remember location in the menu */
+@@ -1167,6 +1167,7 @@
+ 				conf(submenu);
+ 			break;
+ 		case KEY_RIGHT:
++		case 111: /* O WAS PRESSED */
+ 		case 10: /* ENTER WAS PRESSED */
+ 			switch (item_tag()) {
+ 			case 'm':
+@@ -1182,7 +1183,7 @@
+ 				else if (submenu->prompt &&
+ 					 submenu->prompt->type == P_MENU)
+ 					conf(submenu);
+-				else if (res == 10)
++				else if (res == 10 || res == 111)
+ 					sym_toggle_tristate_value(sym);
+ 				break;
+ 			case 's':
+@@ -1317,7 +1318,7 @@
+ 				show_help((struct menu *) item_data());
+ 				break;
+ 			}
+-			if (res == 10 || res == 27 || res == ' ' ||
++			if (res == 10 || res == 27 || res == ' ' || res == 111 ||
+ 					res == KEY_LEFT){
+ 				break;
+ 			}
+@@ -1332,6 +1333,7 @@
+ 			continue;
+ 		switch (res) {
+ 		case ' ':
++		case 111:
+ 		case  10:
+ 		case KEY_RIGHT:
+ 			choice_set_value(menu, child->sym);
