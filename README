@@ -1,0 +1,6 @@
+= Kernel nconfig ColemakDH-Bindings
+
+This patch applies ColemakDH-Bindings to the kernel config. All controls remain the same, except the movement keys "neio" instead of "hjkl" are now used to go left, down, up and right, and also select or deselect ("o") options. In ColemakDH-Bindings "h" is conveniently placed to summon the help of any selected option.
+
+== Installation:
+To install, replace the file `.scripts/kconfig/nconf.c` with the file `nconf.c` from this repo, or apply the patch.
