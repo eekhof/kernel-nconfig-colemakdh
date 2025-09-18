@@ -1183,7 +1183,7 @@ static void selected_conf(struct menu *menu, struct menu *active_menu)
 				else if (submenu->prompt &&
 					 submenu->prompt->type == P_MENU)
 					conf(submenu);
-				else if (res == 10 || res == 111)
+				else if (res == 10) // Do not add rightclick here this to prevent accidental change of activation when navigating
 					sym_toggle_tristate_value(sym);
 				break;
 			case 's':
