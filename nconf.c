@@ -1144,7 +1144,7 @@ static void selected_conf(struct menu *menu, struct menu *active_menu)
 
 		refresh_all_windows(main_window);
 		/* if ESC or left*/
-		if (res == 27 || (menu != &rootmenu && res == KEY_LEFT) || (menu != &rootmenu && res == 'n'))
+		if (res == 27 || (menu != &rootmenu && res == KEY_LEFT) || (menu != &rootmenu && res == 110))
 			break;
 
 		/* remember location in the menu */
